@@ -27,17 +27,17 @@
 
 ### 📊 **Dynamic Solutions**
 
-| Feature              | Description                         |
-| -------------------- | ----------------------------------- |
-| 🌐 **Website URL**   | Direct link to any webpage          |
-| 💬 **WhatsApp**      | Start chat with pre-written message |
-| 📇 **vCard Profile** | Digital professional contact        |
-| 📶 **Secure Wi-Fi**  | Instant network connectivity        |
-| 📺 **YouTube Video** | One-scan video playback             |
-| 🍎 **App Store**     | Link to App or Play Store           |
-| 📧 **Fast Email**    | Pre-written email drafts            |
-| 📍 **Maps Location** | Exact pin or address                |
-| 📝 **Plain Text**    | Display any text message            |
+| Feature              | Description                         | Try It Now                                               |
+| :------------------- | :---------------------------------- | :------------------------------------------------------- |
+| 🌐 **Website URL**   | Direct link to any webpage          | [Open Tool](https://webdevservices.in/qr/tools/url)      |
+| 💬 **WhatsApp**      | Start chat with pre-written message | [Open Tool](https://webdevservices.in/qr/tools/whatsapp) |
+| 📇 **vCard Profile** | Digital professional contact        | [Open Tool](https://webdevservices.in/qr/tools/vcard)    |
+| 📶 **Secure Wi-Fi**  | Instant network connectivity        | [Open Tool](https://webdevservices.in/qr/tools/wifi)     |
+| 📺 **YouTube Video** | One-scan video playback             | [Open Tool](https://webdevservices.in/qr/tools/youtube)  |
+| 🍎 **App Store**     | Link to App or Play Store           | [Open Tool](https://webdevservices.in/qr/tools/appstore) |
+| 📧 **Fast Email**    | Pre-written email drafts            | [Open Tool](https://webdevservices.in/qr/tools/email)    |
+| 📍 **Maps Location** | Exact pin or address                | [Open Tool](https://webdevservices.in/qr/tools/maps)     |
+| 📝 **Plain Text**    | Display any text message            | [Open Tool](https://webdevservices.in/qr/tools/text)     |
 
 ---
 
