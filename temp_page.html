@@ -1,0 +1,695 @@
+<!-- DEBUG-VIEW START 2 APPPATH/Views/frontend/home.php -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script  id="debugbar_loader" data-time="1768597028.143215" src="https://webdevservices.in/qr/?debugbar"></script><script  id="debugbar_dynamic_script"></script><style  id="debugbar_dynamic_style"></style><script class="kint-rich-script">"use strict";(()=>{function m(n){if(!(n instanceof Element))throw new Error("Invalid argument to dedupeElement()");let t=n.ownerDocument,e=E(n);for(let s of t.querySelectorAll(e))n!==s&&s.parentNode.removeChild(s)}function d(n){return n instanceof Element?n.ownerDocument.contains(n):!1}function E(n){if(!(n instanceof Element))throw new Error("Invalid argument to buildClassSelector()");return[n.nodeName,...n.classList].join(".")}function f(n){if(!(n instanceof Element))throw new Error("Invalid argument to selectText()");let t=n.ownerDocument,e=t.getSelection(),s=t.createRange();s.selectNodeContents(n),e.removeAllRanges(),e.addRange(s)}function I(n,t){let e;return function(...s){clearTimeout(e),e=setTimeout(function(){n(...s)},t)}}function x(n){if(!(n instanceof Element))throw new Error("Invalid argument to offsetTop()");return n.offsetTop+(n.offsetParent?x(n.offsetParent):0)}var u=class n{static#e=new Set;static toggleSearchBox(t,e){let s=t.querySelector(".kint-search"),i=t.parentNode;if(s)if(s.classList.toggle("kint-show",e)){if(s.focus(),s.select(),!n.#e.has(s)){let r=i.querySelectorAll("dl").length,o=200;r>1e4&&(o=700),s.addEventListener("keyup",I(n.#t.bind(null,s),o)),n.#e.add(s)}n.#t(s)}else i.classList.remove("kint-search-root")}static#t(t){let e=t.closest(".kint-parent")?.parentNode;if(e)if(t.classList.contains("kint-show")&&t.value.length){let s=e.dataset.lastSearch;if(e.classList.add("kint-search-root"),s!==t.value){e.dataset.lastSearch=t.value,e.classList.remove("kint-search-match");for(let i of e.querySelectorAll(".kint-search-match"))i.classList.remove("kint-search-match");n.#s(e,t.value.toUpperCase())}}else e.classList.remove("kint-search-root")}static#s(t,e){let s=t.cloneNode(!0);for(let c of s.querySelectorAll(".access-path"))c.remove();if(!s.textContent.toUpperCase().includes(e))return;t.classList.add("kint-search-match");let i=t.firstElementChild;for(;i&&i.tagName!=="DT";)i=i.nextElementSibling;if(!i)return;let r=a.getChildContainer(i);if(!r)return;let o,l;for(let c of r.children)c.tagName==="DL"?n.#s(c,e):c.tagName==="UL"&&(c.classList.contains("kint-tabs")?o=c.children:c.classList.contains("kint-tab-contents")&&(l=c.children));if(!(!o||o.length!==l?.length))for(let c=o.length;c--;){let k=!1,F=!1;o[c].textContent.toUpperCase().includes(e)&&(k=!0);let O=l[c].cloneNode(!0);for(let v of O.querySelectorAll(".access-path"))v.remove();if(O.textContent.toUpperCase().includes(e)&&(k=!0,F=!0),k&&o[c].classList.add("kint-search-match"),F)for(let v of l[c].children)v.tagName==="DL"&&n.#s(v,e)}}};var g=class{static sort(t,e){let s=t.dataset.kintTableSort,i=parseInt(s)===e?-1:1,r=t.tBodies[0];[...r.rows].sort(function(o,l){o=o.cells[e].textContent.trim().toLocaleLowerCase(),l=l.cells[e].textContent.trim().toLocaleLowerCase();let c=0;return!isNaN(o)&&!isNaN(l)?(o=parseFloat(o),l=parseFloat(l),c=o-l):isNaN(o)&&!isNaN(l)?c=1:isNaN(l)&&!isNaN(o)?c=-1:c=(""+o).localeCompare(""+l),c*i}).forEach(o=>r.appendChild(o)),i<0?t.dataset.kintTableSort=null:t.dataset.kintTableSort=e}};var a=class n{#e;#t;#s;constructor(t){if(!(t instanceof h))throw new Error("Invalid argument to Rich.constructor()");this.#e=t,this.#e.runOnInit(this.#i.bind(this));let e=new q(this,t);new b(this,t.window,e)}#i(){let t=this.#e.window.document;if(d(this.#t)||(this.#t=t.querySelector("style.kint-rich-style")),this.#t&&m(this.#t),t.querySelector(".kint-rich.kint-file")){this.setupFolder(t);let e=this.#s.querySelector("dd.kint-foldout"),s=Array.from(t.querySelectorAll(".kint-rich.kint-file"));for(let i of s)i.parentNode!==e&&e.appendChild(i);this.#s.classList.add("kint-show")}}addToFolder(t){let e=t.closest(".kint-rich");if(!e)throw new Error("Bad addToFolder");let s=this.#e.window.document;if(this.setupFolder(s),this.folder.contains(t))throw new Error("Bad addToFolder");let i=this.#s.querySelector("dd.kint-foldout"),r=t.closest(".kint-parent, .kint-rich"),o=Array.from(e.querySelectorAll(".kint-folder-trigger"));if(e===r||e.querySelectorAll(".kint-rich > dl").length===1){for(let l of o)l.remove();e.classList.add("kint-file"),i.insertBefore(e,i.firstChild)}else{let l=s.createElement("div");l.classList.add("kint-rich"),l.classList.add("kint-file"),l.appendChild(r.closest(".kint-rich > dl"));let c=e.lastElementChild;c.matches(".kint-rich > footer")&&l.appendChild(c.cloneNode(!0));for(let k of o)k.remove();i.insertBefore(l,i.firstChild)}n.toggle(this.#s.querySelector(".kint-parent"),!0)}setupFolder(t){if(this.#s)d(this.#s)||(this.#s=t.querySelector(".kint-rich.kint-folder"));else{let e=t.createElement("template");e.innerHTML='<div class="kint-rich kint-folder"><dl><dt class="kint-parent"><nav></nav>Kint</dt><dd class="kint-foldout"></dd></dl></div>',this.#s=e.content.firstChild,t.body.appendChild(this.#s)}}get folder(){return d(this.#s)||(this.#s=this.#e.window.document.querySelector(".kint-rich.kint-folder")),this.#s&&m(this.#s),this.#s}isFolderOpen(){let t=this.#s?.querySelector("dd.kint-foldout");if(t)return t.previousSibling.classList.contains("kint-show")}static getChildContainer(t){let e=t.nextElementSibling;for(;e&&!e.matches("dd");)e=e.nextElementSibling;return e}static toggle(t,e){let s=n.getChildContainer(t);s&&(e=t.classList.toggle("kint-show",e),n.#n(s,e))}static switchTab(t){t.parentNode.getElementsByClassName("kint-active-tab")[0].classList.remove("kint-active-tab"),t.classList.add("kint-active-tab");let e=t,s=0;for(;e=e.previousElementSibling;)s++;let i=t.parentNode.nextSibling.children;for(let r=i.length;r--;)r===s?(i[r].classList.add("kint-show"),n.#n(i[r],!0)):i[r].classList.remove("kint-show")}static toggleChildren(t,e){let s=n.getChildContainer(t);if(!s)return;e===void 0&&(e=t.classList.contains("kint-show"));let i=Array.from(s.getElementsByClassName("kint-parent"));for(let r of i)r.classList.toggle("kint-show",e)}static toggleAccessPath(t,e){let s=t.querySelector(".access-path");s?.classList.toggle("kint-show",e)&&f(s)}static#n(t,e){if(t.children.length===2&&t.lastElementChild.matches("ul.kint-tab-contents"))for(let s of t.lastElementChild.children)s.matches("li.kint-show")&&(t=s);if(t.children.length===1&&t.firstElementChild.matches("dl")){let s=t.firstElementChild.firstElementChild;s?.classList?.contains("kint-parent")&&n.toggle(s,e)}}},b=class{#e;#t;#s;#i=null;#n=null;#o=0;constructor(t,e,s){this.#e=t,this.#t=s,this.#s=e,this.#s.addEventListener("click",this.#a.bind(this),!0)}#r(){clearTimeout(this.#i),this.#i=setTimeout(this.#l.bind(this),250)}#l(){clearTimeout(this.#i),this.#i=null,this.#n=null,this.#o=0}#c(){let t=this.#n;if(!t.matches(".kint-parent > nav"))return;let e=t.parentNode;if(this.#o===1)a.toggleChildren(e),this.#t.onTreeChanged(),this.#r(),this.#o=2;else if(this.#o===2){this.#l();let s=e.classList.contains("kint-show"),i=this.#e.folder?.querySelector(".kint-parent"),r=Array.from(this.#s.document.getElementsByClassName("kint-parent"));for(let o of r)o!==i&&o.classList.toggle("kint-show",s);this.#t.onTreeChanged(),this.#t.scrollToFocus()}}#a(t){if(this.#o){this.#c();return}let e=t.target;if(!e.closest(".kint-rich"))return;if(e.tagName==="DFN"&&f(e),e.tagName==="TH"){t.ctrlKey||g.sort(e.closest("table"),e.cellIndex);return}if(e.tagName==="LI"&&e.parentNode.className==="kint-tabs"){if(e.className!=="kint-active-tab"){let i=e.closest("dl")?.querySelector(".kint-parent > nav")??e;a.switchTab(e),this.#t.onTreeChanged(),this.#t.setCursor(i)}return}let s=e.closest("dt");if(e.tagName==="NAV")e.parentNode.tagName==="FOOTER"?(this.#t.setCursor(e),e.parentNode.classList.toggle("kint-show")):s?.classList.contains("kint-parent")&&(a.toggle(s),this.#t.onTreeChanged(),this.#t.setCursor(e),this.#r(),this.#o=1,this.#n=e);else if(e.classList.contains("kint-access-path-trigger"))s&&a.toggleAccessPath(s);else if(e.classList.contains("kint-search-trigger"))s?.matches(".kint-rich > dl > dt.kint-parent")&&u.toggleSearchBox(s);else if(e.classList.contains("kint-folder-trigger")){if(s?.matches(".kint-rich > dl > dt.kint-parent"))this.#e.addToFolder(e),this.#t.onTreeChanged(),this.#t.setCursor(s.querySelector("nav")),this.#t.scrollToFocus();else if(e.parentNode.tagName==="FOOTER"){let i=e.closest(".kint-rich").querySelector(".kint-parent > nav, .kint-rich > footer > nav");this.#e.addToFolder(e),this.#t.onTreeChanged(),this.#t.setCursor(i),this.#t.scrollToFocus()}}else e.classList.contains("kint-search")||(e.tagName==="PRE"&&t.detail===3?f(e):e.closest(".kint-source")&&t.detail===3?f(e.closest(".kint-source")):e.classList.contains("access-path")?f(e):e.tagName!=="A"&&s?.classList.contains("kint-parent")&&(a.toggle(s),this.#t.onTreeChanged(),this.#t.setCursor(s.querySelector("nav"))))}},j=65,G=68,A=70,S=72,K=74,D=75,p=76,V=83,P=9,T=13,B=27,L=32,N=37,R=38,C=39,H=40,M=".kint-rich .kint-parent > nav, .kint-rich > footer > nav, .kint-rich .kint-tabs > li:not(.kint-active-tab)",q=class{#e=[];#t=0;#s=!1;#i;#n;constructor(t,e){this.#i=t,this.#n=e.window,this.#n.addEventListener("keydown",this.#c.bind(this),!0),e.runOnInit(this.onTreeChanged.bind(this))}scrollToFocus(){let t=this.#e[this.#t];if(!t)return;let e=this.#i.folder;if(t===e?.querySelector(".kint-parent > nav"))return;let s=x(t);if(this.#i.isFolderOpen()){let i=e.querySelector("dd.kint-foldout");i.scrollTo(0,s-i.clientHeight/2)}else this.#n.scrollTo(0,s-this.#n.innerHeight/2)}onTreeChanged(){let t=this.#e[this.#t];this.#e=[];let e=this.#i.folder,s=e?.querySelector(".kint-parent > nav"),i=this.#n.document;this.#i.isFolderOpen()&&(i=e,this.#e.push(s));let r=Array.from(i.querySelectorAll(M));for(let o of r)o.offsetParent!==null&&o!==s&&this.#e.push(o);if(s&&!this.#i.isFolderOpen()&&this.#e.push(s),this.#e.length===0){this.#s=!1,this.#r();return}t&&this.#e.indexOf(t)!==-1?this.#t=this.#e.indexOf(t):this.#r()}setCursor(t){if(this.#i.isFolderOpen()&&!this.#i.folder.contains(t)||!t.matches(M))return!1;let e=this.#e.indexOf(t);if(e===-1&&(this.onTreeChanged(),e=this.#e.indexOf(t)),e!==-1){if(e!==this.#t)return this.#t=e,this.#r(),!0;this.#e[e]?.classList.remove("kint-weak-focus")}else console.error("setCursor failed to find target in list",t),console.info("Please report this as a bug in Kint at https://github.com/kint-php/kint");return!1}#o(t){if(this.#e.length===0)return this.#t=0,null;for(this.#t+=t;this.#t<0;)this.#t+=this.#e.length;for(;this.#t>=this.#e.length;)this.#t-=this.#e.length;return this.#r(),this.#t}#r(){let t=this.#n.document.querySelector(".kint-focused");t&&(t.classList.remove("kint-focused"),t.classList.remove("kint-weak-focus")),this.#s&&this.#e[this.#t]?.classList.add("kint-focused")}#l(t){let e=t.closest(".kint-rich .kint-parent ~ dd")?.parentNode.querySelector(".kint-parent > nav");e&&(this.setCursor(e),this.scrollToFocus())}#c(t){if(t.keyCode===B&&t.target.matches(".kint-search")){t.target.blur(),this.#s&&this.#r();return}if(t.target!==this.#n.document.body||t.altKey||t.ctrlKey)return;if(t.keyCode===G){if(this.#s)this.#s=!1;else{if(this.#s=!0,this.onTreeChanged(),this.#e.length===0){this.#s=!1;return}this.scrollToFocus()}this.#r(),t.preventDefault();return}else if(t.keyCode===B){this.#s&&(this.#s=!1,this.#r(),t.preventDefault());return}else if(!this.#s)return;t.preventDefault(),d(this.#e[this.#t])||this.onTreeChanged();let e=this.#e[this.#t];if([P,R,D,H,K].includes(t.keyCode)){t.keyCode===P?this.#o(t.shiftKey?-1:1):t.keyCode===R||t.keyCode===D?this.#o(-1):(t.keyCode===H||t.keyCode===K)&&this.#o(1),this.scrollToFocus();return}if(e.tagName==="LI"&&[L,T,C,p,N,S].includes(t.keyCode)){t.keyCode===L||t.keyCode===T?(a.switchTab(e),this.onTreeChanged()):t.keyCode===C||t.keyCode===p?this.#o(1):(t.keyCode===N||t.keyCode===S)&&this.#o(-1),this.scrollToFocus();return}if(e.parentNode.tagName==="FOOTER"&&e.closest(".kint-rich")){if(t.keyCode===L||t.keyCode===T)e.parentNode.classList.toggle("kint-show");else if(t.keyCode===N||t.keyCode===S)if(e.parentNode.classList.contains("kint-show"))e.parentNode.classList.remove("kint-show");else{this.#l(e.closest(".kint-rich"));return}else if(t.keyCode===C||t.keyCode===p)e.parentNode.classList.add("kint-show");else if(t.keyCode===A&&!this.#i.isFolderOpen()&&e.matches(".kint-rich > footer > nav")){let i=e.closest(".kint-rich").querySelector(".kint-parent > nav, .kint-rich > footer > nav");this.#i.addToFolder(e),this.onTreeChanged(),this.setCursor(i),this.scrollToFocus()}return}let s=e.closest(".kint-parent");if(s){if(t.keyCode===j){a.toggleAccessPath(s);return}if(t.keyCode===A){!this.#i.isFolderOpen()&&s.matches(".kint-rich:not(.kint-folder) > dl > .kint-parent")&&(this.#i.addToFolder(e),this.onTreeChanged(),this.setCursor(e),this.scrollToFocus());return}if(t.keyCode===V){let i=s.closest(".kint-rich > dl")?.querySelector(".kint-search")?.closest(".kint-parent");if(i){e.classList.add("kint-weak-focus"),u.toggleSearchBox(i,!0);return}}if(t.keyCode===L||t.keyCode===T){a.toggle(s),this.onTreeChanged();return}if([C,p,N,S].includes(t.keyCode)){let i=s.classList.contains("kint-show");if(t.keyCode===C||t.keyCode===p){i&&a.toggleChildren(s,!0),a.toggle(s,!0),this.onTreeChanged();return}else if(i){a.toggleChildren(s,!1),a.toggle(s,!1),this.onTreeChanged();return}else{this.#l(s);return}}}}};var y=class{#e;#t;constructor(t){if(!(t instanceof h))throw new Error("Invalid argument to Plain.constructor()");this.#e=t.window,t.runOnInit(this.#s.bind(this))}#s(){d(this.#t)||(this.#t=this.#e.document.querySelector("style.kint-plain-style")),this.#t&&m(this.#t)}};var w=class{#e;constructor(t){if(!(t instanceof h))throw new Error("Invalid argument to Microtime.constructor()");this.#e=t.window,t.runOnInit(this.#t.bind(this))}#t(){let t={},e=this.#e.document.querySelectorAll("[data-kint-microtime-group]");for(let s of e){let i=s.querySelector(".kint-microtime-lap");if(!i)continue;let r=s.dataset.kintMicrotimeGroup,o=parseFloat(i.textContent),l=parseFloat(s.querySelector(".kint-microtime-avg").textContent);t[r]??={min:o,max:o,avg:l},t[r].min>o&&(t[r].min=o),t[r].max<o&&(t[r].max=o),t[r].avg=l}for(let s of e){let i=s.querySelector(".kint-microtime-lap");if(!i)continue;let r=parseFloat(i.textContent),o=t[s.dataset.kintMicrotimeGroup];if(s.querySelector(".kint-microtime-avg").textContent=o.avg,!(r===o.min&&r===o.max))if(s.classList.add("kint-microtime-js"),r>o.avg){let l=(r-o.avg)/(o.max-o.avg);i.style.background="hsl("+(40-40*l)+", 100%, 65%)"}else{let l=0;o.avg!==o.min&&(l=(o.avg-r)/(o.avg-o.min)),i.style.background="hsl("+(40+80*l)+", 100%, 65%)"}}}};var U=Symbol(),h=class n{static#e=null;#t;#s=[];#i=new Set;static init(t){return n.#e??=new n(t,U),n.#e.#n(),n.#e.runOnLoad(n.#r),n.#e}get window(){return this.#t}constructor(t,e){if(U!==e)throw new Error("Kint constructor is private. Use Kint.init()");if(!(t instanceof Window))throw new Error("Invalid argument to Kint.init()");this.#t=t,this.runOnInit(this.#o.bind(this)),new y(this),new a(this),new w(this)}runOnLoad(t){if(this.#t.document.readyState==="complete")try{t()}catch{}else this.#t.addEventListener("load",t)}runOnInit(t){this.#s.push(t)}#n(){this.#t.document.currentScript&&(this.#i.add(E(window.document.currentScript)),window.document.currentScript.remove())}#o(){for(let t of this.#i.keys())for(let e of this.#t.document.querySelectorAll(t))e.remove()}static#r(){for(let t of n.#e.#s)t()}};window.Kint||(window.Kint=h);window.Kint.init(window);})();
+</script><style class="kint-rich-style">.kint-rich{--spacing: 4px;--nav-size: 15px;--backdrop-color: rgba(255, 255, 255, 0.9);--main-background: #e0eaef;--secondary-background: #c1d4df;--text-color: #1d1e1e;--variable-name-color: #1d1e1e;--variable-type-color: #0092db;--variable-type-color-hover: #5cb730;--border-color: #b6cedb;--border-color-hover: #0092db;--border: 1px solid var(--border-color);--foldout-max-size: calc(100vh - 100px);--foldout-zindex: 999999;--caret-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 150'><g stroke-width='2' fill='%23FFF'><path d='M1 1h28v28H1zm5 14h18m-9 9V6M1 61h28v28H1zm5 14h18' stroke='%23379'/><path d='M1 31h28v28H1zm5 14h18m-9 9V36M1 91h28v28H1zm5 14h18' stroke='%235A3'/><path d='M1 121h28v28H1zm5 5l18 18m-18 0l18-18' stroke='%23CCC'/></g></svg>");--ap-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><g stroke='%23000' fill='transparent'><path d='M2 8h3m3 3v3M8 2v3m3 3h3M3 8' stroke-width='2' stroke-linecap='round'/><circle stroke-width='1.5' r='4.5' cx='8' cy='8'/></g></svg>");--folder-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M2 2h4l2 2h6v9H2V2h2' stroke-width='2' stroke='%23000' fill='transparent' stroke-linejoin='round'/></svg>");--search-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><g stroke='%23000' fill='transparent'><path d='M2 14l3-3' stroke-linecap='round' stroke-width='3'/><circle stroke-width='2' r='5' cx='9' cy='7'/></g></svg>");font-size:13px;overflow-x:auto;white-space:nowrap;background:var(--backdrop-color);direction:ltr;contain:content}.kint-rich.kint-folder{position:fixed;bottom:0;left:0;right:0;z-index:var(--foldout-zindex);width:100%;margin:0;display:block}.kint-rich.kint-folder dd.kint-foldout{max-height:var(--foldout-max-size);padding-right:calc(var(--spacing)*2);overflow-y:scroll;display:none}.kint-rich.kint-folder dd.kint-foldout.kint-show{display:block}.kint-rich::selection{background:var(--border-color-hover);color:var(--text-color)}.kint-rich .kint-focused{box-shadow:0 0 3px 3px var(--variable-type-color-hover)}.kint-rich .kint-focused.kint-weak-focus{box-shadow:0 0 3px 1px color-mix(in srgb, var(--variable-type-color-hover) 50%, transparent)}.kint-rich,.kint-rich::before,.kint-rich::after,.kint-rich *,.kint-rich *::before,.kint-rich *::after{box-sizing:border-box;border-radius:0;color:var(--text-color);float:none !important;font-family:Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;line-height:15px;margin:0;padding:0;text-align:left}.kint-rich{margin:calc(var(--spacing)*2) 0}.kint-rich dt,.kint-rich dl{width:auto}.kint-rich dt,.kint-rich div.access-path{background:var(--main-background);border:var(--border);color:var(--text-color);display:block;font-weight:bold;list-style:none outside none;overflow:auto;padding:var(--spacing)}.kint-rich dt:hover,.kint-rich div.access-path:hover{border-color:var(--border-color-hover)}.kint-rich>dl dl{padding:0 0 0 calc(var(--spacing)*3)}.kint-rich dt.kint-parent>nav,.kint-rich>footer>nav{background:var(--caret-image) no-repeat scroll 0 0/var(--nav-size) 75px rgba(0,0,0,0);cursor:pointer;display:inline-block;height:var(--nav-size);width:var(--nav-size);margin-right:3px;vertical-align:middle}.kint-rich dt.kint-parent:hover>nav,.kint-rich>footer>nav:hover{background-position:0 25%}.kint-rich dt.kint-parent.kint-show>nav,.kint-rich>footer.kint-show>nav{background-position:0 50%}.kint-rich dt.kint-parent.kint-show:hover>nav,.kint-rich>footer.kint-show>nav:hover{background-position:0 75%}.kint-rich dt.kint-parent.kint-locked>nav{background-position:0 100%}.kint-rich dt.kint-parent+dd{display:none;border-left:1px dashed var(--border-color);contain:strict}.kint-rich dt.kint-parent.kint-show+dd{display:block;contain:content}.kint-rich var,.kint-rich var a{color:var(--variable-type-color);font-style:normal}.kint-rich dt:hover var,.kint-rich dt:hover var a{color:var(--variable-type-color-hover)}.kint-rich dfn{font-style:normal;font-family:monospace;color:var(--variable-name-color)}.kint-rich pre{color:var(--text-color);margin:0 0 0 calc(var(--spacing)*3);padding:5px;overflow-y:hidden;border-top:0;border:var(--border);background:var(--main-background);display:block;word-break:normal}.kint-rich .kint-access-path-trigger,.kint-rich .kint-folder-trigger,.kint-rich .kint-search-trigger{background:color-mix(in srgb, var(--text-color) 80%, transparent);border-radius:3px;padding:2px;height:var(--nav-size);width:var(--nav-size);font-size:var(--nav-size);margin-left:5px;font-weight:bold;text-align:center;line-height:1;float:right !important;cursor:pointer;position:relative;overflow:hidden}.kint-rich .kint-access-path-trigger::before,.kint-rich .kint-folder-trigger::before,.kint-rich .kint-search-trigger::before{display:block;content:"";width:100%;height:100%;background:var(--main-background);mask:center/contain no-repeat alpha}.kint-rich .kint-access-path-trigger:hover,.kint-rich .kint-folder-trigger:hover,.kint-rich .kint-search-trigger:hover{background:var(--main-background)}.kint-rich .kint-access-path-trigger:hover::before,.kint-rich .kint-folder-trigger:hover::before,.kint-rich .kint-search-trigger:hover::before{background:var(--text-color)}.kint-rich .kint-access-path-trigger::before{mask-image:var(--ap-image)}.kint-rich .kint-folder-trigger::before{mask-image:var(--folder-image)}.kint-rich .kint-search-trigger::before{mask-image:var(--search-image)}.kint-rich input.kint-search{display:none;border:var(--border);border-top-width:0;border-bottom-width:0;padding:var(--spacing);float:right !important;margin:calc(var(--spacing)*-1) 0;color:var(--variable-name-color);background:var(--secondary-background);height:calc(var(--nav-size) + var(--spacing)*2);width:calc(var(--nav-size)*10);position:relative;z-index:100}.kint-rich input.kint-search.kint-show{display:block}.kint-rich .kint-search-root ul.kint-tabs>li:not(.kint-search-match){background:var(--secondary-background);filter:saturate(0);opacity:.5}.kint-rich .kint-search-root dl:not(.kint-search-match){opacity:.5}.kint-rich .kint-search-root dl:not(.kint-search-match)>dt{background:var(--main-background);filter:saturate(0)}.kint-rich .kint-search-root dl:not(.kint-search-match) dl,.kint-rich .kint-search-root dl:not(.kint-search-match) ul.kint-tabs>li:not(.kint-search-match){opacity:1}.kint-rich div.access-path{background:var(--secondary-background);display:none;margin-top:5px;padding:4px;white-space:pre}.kint-rich div.access-path.kint-show{display:block}.kint-rich footer{padding:0 3px 3px;font-size:9px;background:rgba(0,0,0,0)}.kint-rich footer>.kint-folder-trigger{background:rgba(0,0,0,0)}.kint-rich footer>.kint-folder-trigger::before{background:var(--text-color)}.kint-rich footer nav{height:10px;width:10px;background-size:10px 50px}.kint-rich footer>ol{display:none;margin-left:32px}.kint-rich footer.kint-show>ol{display:block}.kint-rich a{color:var(--text-color);text-shadow:none;text-decoration:underline}.kint-rich a:hover{color:var(--variable-name-color);border-bottom:1px dotted var(--variable-name-color)}.kint-rich ul{list-style:none;padding-left:calc(var(--spacing)*3)}.kint-rich ul:not(.kint-tabs) li{border-left:1px dashed var(--border-color)}.kint-rich ul:not(.kint-tabs) li>dl{border-left:none}.kint-rich ul.kint-tabs{margin:0 0 0 calc(var(--spacing)*3);padding-left:0;background:var(--main-background);border:var(--border);border-top:0}.kint-rich ul.kint-tabs>li{background:var(--secondary-background);border:var(--border);cursor:pointer;display:inline-block;height:calc(var(--spacing)*6);margin:calc(var(--spacing)/2);padding:0 calc(2px + var(--spacing)*2.5);vertical-align:top}.kint-rich ul.kint-tabs>li:hover,.kint-rich ul.kint-tabs>li.kint-active-tab:hover{border-color:var(--border-color-hover);color:var(--variable-type-color-hover)}.kint-rich ul.kint-tabs>li.kint-active-tab{background:var(--main-background);border-top:0;margin-top:-1px;height:27px;line-height:24px}.kint-rich ul.kint-tabs>li:not(.kint-active-tab){line-height:calc(var(--spacing)*5)}.kint-rich ul.kint-tabs li+li{margin-left:0}.kint-rich ul.kint-tab-contents>li{display:none;contain:strict}.kint-rich ul.kint-tab-contents>li.kint-show{display:block;contain:content}.kint-rich dt:hover+dd>ul>li.kint-active-tab{border-color:var(--border-color-hover);color:var(--variable-type-color-hover)}.kint-rich dt>.kint-color-preview{width:var(--nav-size);height:var(--nav-size);display:inline-block;vertical-align:middle;margin-left:10px;border:var(--border);background-color:#ccc;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path fill="%23FFF" d="M0 0h1v2h1V1H0z"/></svg>');background-size:min(20px,100%)}.kint-rich dt>.kint-color-preview:hover{border-color:var(--border-color-hover)}.kint-rich dt>.kint-color-preview>div{width:100%;height:100%}.kint-rich table{border-collapse:collapse;empty-cells:show;border-spacing:0}.kint-rich table *{font-size:12px}.kint-rich table dt{background:none;padding:calc(var(--spacing)/2)}.kint-rich table dt .kint-parent{min-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.kint-rich table td,.kint-rich table th{border:var(--border);padding:calc(var(--spacing)/2);vertical-align:center}.kint-rich table th{cursor:alias}.kint-rich table td:first-child,.kint-rich table th{font-weight:bold;background:var(--secondary-background);color:var(--variable-name-color)}.kint-rich table td{background:var(--main-background);white-space:pre}.kint-rich table td>dl{padding:0}.kint-rich table pre{border-top:0;border-right:0}.kint-rich table thead th:first-child{background:none;border:0}.kint-rich table tr:hover>td{box-shadow:0 0 1px 0 var(--border-color-hover) inset}.kint-rich table tr:hover var{color:var(--variable-type-color-hover)}.kint-rich table ul.kint-tabs li.kint-active-tab{height:20px;line-height:17px}.kint-rich pre.kint-source{margin-left:-1px}.kint-rich pre.kint-source[data-kint-filename]:before{display:block;content:attr(data-kint-filename);margin-bottom:var(--spacing);padding-bottom:var(--spacing);border-bottom:1px solid var(--secondary-background)}.kint-rich pre.kint-source>div:before{display:inline-block;content:counter(kint-l);counter-increment:kint-l;border-right:1px solid var(--border-color-hover);padding-right:calc(var(--spacing)*2);margin-right:calc(var(--spacing)*2)}.kint-rich pre.kint-source>div.kint-highlight{background:var(--secondary-background)}.kint-rich .kint-microtime-js .kint-microtime-lap{text-shadow:-1px 0 var(--border-color-hover),0 1px var(--border-color-hover),1px 0 var(--border-color-hover),0 -1px var(--border-color-hover);color:var(--main-background);font-weight:bold}.kint-rich{--main-background: #f8f8f8;--secondary-background: #f8f8f8;--variable-type-color: #06f;--variable-type-color-hover: #f00;--border-color: #d7d7d7;--border-color-hover: #aaa;--alternative-background: #fff;--highlight-color: #cfc;--caret-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 150'><path d='M6 7h18l-9 15zm0 30h18l-9 15zm0 45h18l-9-15zm0 30h18l-9-15zm0 12l18 18m-18 0l18-18' fill='%23555'/><path d='M6 126l18 18m-18 0l18-18' stroke-width='2' stroke='%23555'/></svg>")}.kint-rich .kint-focused{box-shadow:0 0 3px 2px var(--variable-type-color-hover)}.kint-rich dt{font-weight:normal}.kint-rich dt.kint-parent{margin-top:4px}.kint-rich dl dl{margin-top:4px;padding-left:25px;border-left:none}.kint-rich>dl>dt{background:var(--secondary-background)}.kint-rich ul{margin:0;padding-left:0}.kint-rich ul:not(.kint-tabs)>li{border-left:0}.kint-rich ul.kint-tabs{background:var(--secondary-background);border:var(--border);border-width:0 1px 1px 1px;padding:4px 0 0 12px;margin-left:-1px;margin-top:-1px}.kint-rich ul.kint-tabs li,.kint-rich ul.kint-tabs li+li{margin:0 0 0 4px}.kint-rich ul.kint-tabs li{border-bottom-width:0;height:calc(var(--spacing)*6 + 1px)}.kint-rich ul.kint-tabs li:first-child{margin-left:0}.kint-rich ul.kint-tabs li.kint-active-tab{border-top:var(--border);background:var(--alternative-background);font-weight:bold;padding-top:0;border-bottom:1px solid var(--alternative-background) !important;margin-bottom:-1px}.kint-rich ul.kint-tabs li.kint-active-tab:hover{border-bottom:1px solid var(--alternative-background)}.kint-rich ul>li>pre{border:var(--border)}.kint-rich dt:hover+dd>ul{border-color:var(--border-color-hover)}.kint-rich pre{background:var(--alternative-background);margin-top:4px;margin-left:25px}.kint-rich .kint-source{margin-left:-1px}.kint-rich .kint-source .kint-highlight{background:var(--highlight-color)}.kint-rich .kint-parent.kint-show>.kint-search{border-bottom-width:1px}.kint-rich table td{background:var(--alternative-background)}.kint-rich table td>dl{padding:0;margin:0}.kint-rich table td>dl>dt.kint-parent{margin:0}.kint-rich table td:first-child,.kint-rich table td,.kint-rich table th{padding:2px 4px}.kint-rich table dd,.kint-rich table dt{background:var(--alternative-background)}.kint-rich table tr:hover>td{box-shadow:none;background:var(--highlight-color)}
+</style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR-Master - Premium QR Solutions | QR-Master Platform</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        'primary-dark': '#4338ca',
+                        secondary: '#ec4899',
+                        'text-main': '#0f172a',
+                        'text-muted': '#475569',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        '3xl': '1.5rem',
+                        '4xl': '2rem',
+                    },
+                    animation: {
+                        'breathe': 'breathe 10s ease-in-out infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass {
+                @apply bg-white/70 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)];
+            }
+            .glass-card {
+                @apply bg-white/40 backdrop-blur-2xl border border-white/60 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.05)];
+            }
+            .btn-gradient {
+                @apply bg-gradient-to-br from-primary to-secondary text-white shadow-[0_10px_20px_-10px_rgba(99,102,241,0.5)] hover:shadow-[0_15px_30px_-10px_rgba(99,102,241,0.6)] hover:-translate-y-0.5 transition-all duration-300;
+            }
+        }
+
+        @keyframes breathe {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .aurora-bg {
+            background: 
+                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+            background: 
+                radial-gradient(at 40% 20%, rgba(236, 72, 153, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, rgba(34, 211, 238, 0.15) 0px, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-text-main font-sans overflow-x-hidden selection:bg-primary/20">
+
+    <!-- THE COLOR ENGINE -->
+    <div class="fixed inset-0 z-[-1] aurora-bg blur-[40px] animate-breathe"></div>
+
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <!-- DEBUG-VIEW START 1 APPPATH/Views/frontend/common/navbar.php -->
+<nav class="fixed top-5 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl bg-white/80 backdrop-blur-md border border-white/50 shadow-lg rounded-full px-6 md:px-10 py-4 flex justify-between items-center z-[1000] transition-all duration-300 no-print">
+    <a href="https://webdevservices.in/qr/" class="flex items-center gap-3 no-underline text-text-main font-extrabold text-xl group z-50">
+        <div class="w-9 h-9 bg-gradient-to-br from-primary to-primary-dark rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center text-white transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110">
+             <i data-feather="grid" class="w-5 h-5"></i>
+        </div>
+        <span class="tracking-tight text-slate-900">QR-Master</span>
+    </a>
+    
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center gap-8 lg:gap-12">
+        
+        <!-- Solutions Mega Menu -->
+        <div class="relative group h-full py-2">
+            <button class="flex items-center gap-1.5 font-bold text-sm text-slate-600 hover:text-primary transition-colors cursor-pointer py-2">
+                Solutions <i data-feather="chevron-down" class="w-4 h-4 group-hover:rotate-180 transition-transform duration-300"></i>
+            </button>
+            
+             <!-- Mega Menu Bridge (prevents closing when moving mouse) -->
+            <div class="absolute top-full left-0 w-full h-8 bg-transparent"></div>
+            
+            <!-- Mega Menu Content -->
+            <div class="absolute top-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 w-[600px] lg:w-[850px] bg-white/95 backdrop-blur-2xl rounded-[2.5rem] p-8 shadow-[0_50px_100px_-20px_rgba(50,50,93,0.15)] border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 z-50 overflow-hidden ring-1 ring-slate-900/5">
+                
+                <div class="grid grid-cols-12 gap-0 relative">
+                    <!-- Background Decor -->
+                     <div class="absolute -top-32 -left-32 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+                     <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <!-- Left Column: Featured -->
+                    <div class="col-span-4 pr-8 border-r border-slate-100 relative z-10 hidden lg:block">
+                        <div class="flex items-center justify-between mb-6">
+                            <h4 class="text-[0.65rem] font-black text-slate-400 uppercase tracking-widest">Featured Tool</h4>
+                            <span class="px-2 py-0.5 bg-red-50 text-red-500 text-[0.6rem] font-bold rounded-full animate-pulse">HOT</span>
+                        </div>
+                        
+                         <a href="https://webdevservices.in/qr/tools/url" class="block group/card relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 to-white border border-slate-100 p-6 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300">
+                             <div class="absolute top-0 right-0 p-4 opacity-10 group-hover/card:opacity-20 transition-opacity">
+                                 <i data-feather="star" class="w-16 h-16 text-primary rotate-12"></i>
+                             </div>
+                             <div class="relative z-10">
+                                <div class="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center text-primary mb-4 group-hover/card:scale-110 group-hover/card:rotate-6 transition-transform duration-300">
+                                    <i data-feather="globe" class="w-6 h-6"></i>
+                                </div>
+                                <h5 class="font-bold text-slate-900 mb-1.5 text-lg">Dynamic URL</h5>
+                                <p class="text-xs text-slate-500 leading-relaxed font-medium">Create trackable links you can update endlessly anytime.</p>
+                                <div class="mt-4 flex items-center text-xs font-bold text-primary opacity-0 group-hover/card:opacity-100 transform translate-y-2 group-hover/card:translate-y-0 transition-all">
+                                    Create Now <i data-feather="arrow-right" class="w-3 h-3 ml-1"></i>
+                                </div>
+                             </div>
+                         </a>
+                         
+                         <div class="mt-8">
+                             <h4 class="text-[0.65rem] font-black text-slate-400 uppercase tracking-widest mb-4">Resources</h4>
+                             <ul class="space-y-4">
+                                 <li>
+                                     <a href="https://webdevservices.in/qr/docs" class="flex items-center gap-3 group/link">
+                                         <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover/link:bg-blue-50 group-hover/link:text-blue-600 transition-colors">
+                                             <i data-feather="book-open" class="w-3.5 h-3.5"></i>
+                                         </div>
+                                         <span class="text-sm font-bold text-slate-600 group-hover/link:text-slate-900 transition-colors">Documentation</span>
+                                     </a>
+                                 </li>
+                                 <li>
+                                     <a href="https://webdevservices.in/qr/contact" class="flex items-center gap-3 group/link">
+                                         <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover/link:bg-purple-50 group-hover/link:text-purple-600 transition-colors">
+                                             <i data-feather="life-buoy" class="w-3.5 h-3.5"></i>
+                                         </div>
+                                         <span class="text-sm font-bold text-slate-600 group-hover/link:text-slate-900 transition-colors">Help Center</span>
+                                     </a>
+                                 </li>
+                             </ul>
+                         </div>
+                    </div>
+
+                    <!-- Right Column: All Tools -->
+                    <div class="col-span-12 lg:col-span-8 lg:pl-8 relative z-10">
+                        <div class="flex items-center justify-between mb-6">
+                            <h4 class="text-[0.65rem] font-black text-slate-400 uppercase tracking-widest">All Generators</h4>
+                            <a href="https://webdevservices.in/qr/customer/creator" class="text-[0.7rem] font-bold text-primary flex items-center hover:underline">
+                                View Full Studio <i data-feather="arrow-right" class="w-3 h-3 ml-1"></i>
+                            </a>
+                        </div>
+                        
+                         <div class="grid grid-cols-2 gap-4">
+                                                            <a href="https://webdevservices.in/qr/tools/url" class="flex items-start gap-4 p-3 rounded-2xl hover:bg-slate-50/80 hover:scale-[1.02] border border-transparent hover:border-slate-100 transition-all duration-300 group/item">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-white border border-slate-100 rounded-xl flex items-center justify-center text-slate-400 shadow-[0_2px_8px_rgba(0,0,0,0.04)] group-hover/item:border-primary/20 group-hover/item:bg-primary group-hover/item:text-white transition-all duration-300">
+                                        <i data-feather="globe" class="w-5 h-5"></i>
+                                    </div>
+                                    <div class="pt-0.5">
+                                        <span class="block font-bold text-sm text-slate-800 group-hover/item:text-primary transition-colors">Website URL</span>
+                                        <small class="block text-slate-500 text-[0.7rem] leading-tight mt-1 line-clamp-1 group-hover/item:text-slate-600">Link to any page</small>
+                                    </div>
+                                </a>
+                                                            <a href="https://webdevservices.in/qr/tools/vcard" class="flex items-start gap-4 p-3 rounded-2xl hover:bg-slate-50/80 hover:scale-[1.02] border border-transparent hover:border-slate-100 transition-all duration-300 group/item">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-white border border-slate-100 rounded-xl flex items-center justify-center text-slate-400 shadow-[0_2px_8px_rgba(0,0,0,0.04)] group-hover/item:border-primary/20 group-hover/item:bg-primary group-hover/item:text-white transition-all duration-300">
+                                        <i data-feather="user" class="w-5 h-5"></i>
+                                    </div>
+                                    <div class="pt-0.5">
+                                        <span class="block font-bold text-sm text-slate-800 group-hover/item:text-primary transition-colors">vCard Profile</span>
+                                        <small class="block text-slate-500 text-[0.7rem] leading-tight mt-1 line-clamp-1 group-hover/item:text-slate-600">Digital business card</small>
+                                    </div>
+                                </a>
+                                                            <a href="https://webdevservices.in/qr/tools/text" class="flex items-start gap-4 p-3 rounded-2xl hover:bg-slate-50/80 hover:scale-[1.02] border border-transparent hover:border-slate-100 transition-all duration-300 group/item">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-white border border-slate-100 rounded-xl flex items-center justify-center text-slate-400 shadow-[0_2px_8px_rgba(0,0,0,0.04)] group-hover/item:border-primary/20 group-hover/item:bg-primary group-hover/item:text-white transition-all duration-300">
+                                        <i data-feather="type" class="w-5 h-5"></i>
+                                    </div>
+                                    <div class="pt-0.5">
+                                        <span class="block font-bold text-sm text-slate-800 group-hover/item:text-primary transition-colors">Plain Text</span>
+                                        <small class="block text-slate-500 text-[0.7rem] leading-tight mt-1 line-clamp-1 group-hover/item:text-slate-600">Simple text display</small>
+                                    </div>
+                                </a>
+                                                            <a href="https://webdevservices.in/qr/tools/email" class="flex items-start gap-4 p-3 rounded-2xl hover:bg-slate-50/80 hover:scale-[1.02] border border-transparent hover:border-slate-100 transition-all duration-300 group/item">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-white border border-slate-100 rounded-xl flex items-center justify-center text-slate-400 shadow-[0_2px_8px_rgba(0,0,0,0.04)] group-hover/item:border-primary/20 group-hover/item:bg-primary group-hover/item:text-white transition-all duration-300">
+                                        <i data-feather="mail" class="w-5 h-5"></i>
+                                    </div>
+                                    <div class="pt-0.5">
+                                        <span class="block font-bold text-sm text-slate-800 group-hover/item:text-primary transition-colors">Email</span>
+                                        <small class="block text-slate-500 text-[0.7rem] leading-tight mt-1 line-clamp-1 group-hover/item:text-slate-600">Pre-filled emails</small>
+                                    </div>
+                                </a>
+                                                            <a href="https://webdevservices.in/qr/tools/wifi" class="flex items-start gap-4 p-3 rounded-2xl hover:bg-slate-50/80 hover:scale-[1.02] border border-transparent hover:border-slate-100 transition-all duration-300 group/item">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-white border border-slate-100 rounded-xl flex items-center justify-center text-slate-400 shadow-[0_2px_8px_rgba(0,0,0,0.04)] group-hover/item:border-primary/20 group-hover/item:bg-primary group-hover/item:text-white transition-all duration-300">
+                                        <i data-feather="wifi" class="w-5 h-5"></i>
+                                    </div>
+                                    <div class="pt-0.5">
+                                        <span class="block font-bold text-sm text-slate-800 group-hover/item:text-primary transition-colors">WiFi Network</span>
+                                        <small class="block text-slate-500 text-[0.7rem] leading-tight mt-1 line-clamp-1 group-hover/item:text-slate-600">Connect instantly</small>
+                                    </div>
+                                </a>
+                                                            <a href="https://webdevservices.in/qr/tools/whatsapp" class="flex items-start gap-4 p-3 rounded-2xl hover:bg-slate-50/80 hover:scale-[1.02] border border-transparent hover:border-slate-100 transition-all duration-300 group/item">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-white border border-slate-100 rounded-xl flex items-center justify-center text-slate-400 shadow-[0_2px_8px_rgba(0,0,0,0.04)] group-hover/item:border-primary/20 group-hover/item:bg-primary group-hover/item:text-white transition-all duration-300">
+                                        <i data-feather="message-circle" class="w-5 h-5"></i>
+                                    </div>
+                                    <div class="pt-0.5">
+                                        <span class="block font-bold text-sm text-slate-800 group-hover/item:text-primary transition-colors">WhatsApp</span>
+                                        <small class="block text-slate-500 text-[0.7rem] leading-tight mt-1 line-clamp-1 group-hover/item:text-slate-600">Start chats via QR</small>
+                                    </div>
+                                </a>
+                                                            <a href="https://webdevservices.in/qr/tools/youtube" class="flex items-start gap-4 p-3 rounded-2xl hover:bg-slate-50/80 hover:scale-[1.02] border border-transparent hover:border-slate-100 transition-all duration-300 group/item">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-white border border-slate-100 rounded-xl flex items-center justify-center text-slate-400 shadow-[0_2px_8px_rgba(0,0,0,0.04)] group-hover/item:border-primary/20 group-hover/item:bg-primary group-hover/item:text-white transition-all duration-300">
+                                        <i data-feather="play-circle" class="w-5 h-5"></i>
+                                    </div>
+                                    <div class="pt-0.5">
+                                        <span class="block font-bold text-sm text-slate-800 group-hover/item:text-primary transition-colors">YouTube</span>
+                                        <small class="block text-slate-500 text-[0.7rem] leading-tight mt-1 line-clamp-1 group-hover/item:text-slate-600">Share videos</small>
+                                    </div>
+                                </a>
+                                                            <a href="https://webdevservices.in/qr/tools/appstore" class="flex items-start gap-4 p-3 rounded-2xl hover:bg-slate-50/80 hover:scale-[1.02] border border-transparent hover:border-slate-100 transition-all duration-300 group/item">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-white border border-slate-100 rounded-xl flex items-center justify-center text-slate-400 shadow-[0_2px_8px_rgba(0,0,0,0.04)] group-hover/item:border-primary/20 group-hover/item:bg-primary group-hover/item:text-white transition-all duration-300">
+                                        <i data-feather="smartphone" class="w-5 h-5"></i>
+                                    </div>
+                                    <div class="pt-0.5">
+                                        <span class="block font-bold text-sm text-slate-800 group-hover/item:text-primary transition-colors">App Store</span>
+                                        <small class="block text-slate-500 text-[0.7rem] leading-tight mt-1 line-clamp-1 group-hover/item:text-slate-600">Download apps</small>
+                                    </div>
+                                </a>
+                                                    </div>
+                        
+                        <div class="mt-8 p-4 rounded-2xl bg-gradient-to-r from-slate-50 to-white border border-slate-100 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white">
+                                    <i data-feather="lock" class="w-3.5 h-3.5"></i>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-xs font-bold text-slate-900">Enterprise Solutions?</span>
+                                    <span class="text-[0.65rem] text-slate-500">Custom API & Bulk Generation</span>
+                                </div>
+                            </div>
+                            <a href="https://webdevservices.in/qr/contact" class="px-4 py-1.5 bg-white border border-slate-200 text-slate-900 text-[0.7rem] font-bold rounded-lg hover:bg-slate-50 transition-colors">Contact Sales</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="https://webdevservices.in/qr/customer/creator" class="font-bold text-sm text-slate-600 hover:text-primary transition-colors">Creator</a>
+        <a href="https://webdevservices.in/qr/faq" class="font-bold text-sm text-slate-600 hover:text-primary transition-colors">FAQ</a>
+    </div>
+
+    <!-- Right Actions -->
+    <div class="flex items-center gap-4">
+                     <a href="https://webdevservices.in/qr/customer/login" class="font-bold text-sm text-slate-600 hover:text-primary transition-colors hidden sm:block">Log In</a>
+             <a href="https://webdevservices.in/qr/customer/register" class="inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-white transition-all duration-200 bg-gradient-to-r from-primary to-secondary rounded-full shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-0.5">
+                Get Started
+            </a>
+            </div>
+</nav>
+
+<!-- DEBUG-VIEW ENDED 1 APPPATH/Views/frontend/common/navbar.php -->
+
+    <!-- Hero Section -->
+    <main class="container mx-auto px-6 pt-44 pb-24 grid lg:grid-cols-2 gap-16 items-center">
+        <div class="space-y-8 animate-up">
+            <div class="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full text-xs font-bold tracking-tight">
+                ✨ New: AI-Powered Generation
+            </div>
+            <h1 class="text-5xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-primary to-primary-dark">
+                Make the World <br> Click & Connect.
+            </h1>
+            <p class="text-lg lg:text-xl text-text-muted leading-relaxed max-w-xl">
+                Transform standard black-and-white codes into vibrant, 3D branded experiences. Track every scan with forensic precision.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="#tools" class="btn-gradient px-8 py-3.5 rounded-2xl flex items-center gap-2 group">
+                    Start Creating <i data-feather="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="#" class="px-8 py-3.5 bg-white text-text-main font-bold rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    View Demo
+                </a>
+            </div>
+        </div>
+        <div class="relative flex justify-center lg:justify-end animate-up">
+            <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 via-secondary/10 to-transparent blur-3xl rounded-full -z-10 transform scale-75"></div>
+            <img src="https://webdevservices.in/qr/upload/assets/hero_colorful.png" class="w-full max-w-md lg:max-w-xl animate-float drop-shadow-2xl" alt="3D Color QR">
+        </div>
+    </main>
+
+    <!-- Tools Section -->
+    <section class="container mx-auto px-6 py-24" id="tools">
+        <div class="text-center max-w-2xl mx-auto mb-20">
+            <span class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-black uppercase tracking-[0.2em] text-xs mb-4">Creative Studio</span>
+            <h2 class="text-4xl lg:text-5xl font-extrabold tracking-tight text-text-main">
+                Everything you need to <br>bridge the gap.
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <a href="https://webdevservices.in/qr/tools/url" class="group block relative p-2.5 glass-card rounded-[2.5rem] transition-all duration-500 hover:-translate-y-3 hover:bg-white hover:border-white hover:shadow-2xl">
+                <div class="relative bg-white rounded-[2rem] p-8 h-full border border-slate-50 overflow-hidden group-hover:border-transparent transition-all">
+                    <!-- Glow Blob -->
+                    <div class="absolute -top-5 -right-5 w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full blur-[40px] opacity-10 group-hover:opacity-30 group-hover:scale-150 transition-all duration-700"></div>
+                    
+                    <!-- Background Icon -->
+                    <img src="https://webdevservices.in/qr/upload/icons/Website-URL.png" class="absolute -bottom-8 -right-8 w-48 h-48 opacity-[0.03] grayscale group-hover:grayscale-0 group-hover:opacity-10 group-hover:rotate-12 transition-all duration-700 pointer-events-none" alt="">
+                    
+                    <div class="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-text-main mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-xl transition-all duration-500 relative z-10">
+                        <i data-feather="globe" class="w-8 h-8"></i>
+                    </div>
+                    
+                    <h3 class="text-2xl font-extrabold mb-3 relative z-10">Website URL</h3>
+                    <p class="text-text-muted leading-relaxed text-sm mb-8 relative z-10">Direct link to any webpage</p>
+                    
+                    <div class="flex items-center gap-2 text-primary font-bold group-hover:gap-4 group-hover:text-secondary transition-all relative z-10">
+                        Try Now <i data-feather="arrow-right" class="w-4.5 h-4.5"></i>
+                    </div>
+                </div>
+            </a>
+                        <a href="https://webdevservices.in/qr/tools/whatsapp" class="group block relative p-2.5 glass-card rounded-[2.5rem] transition-all duration-500 hover:-translate-y-3 hover:bg-white hover:border-white hover:shadow-2xl">
+                <div class="relative bg-white rounded-[2rem] p-8 h-full border border-slate-50 overflow-hidden group-hover:border-transparent transition-all">
+                    <!-- Glow Blob -->
+                    <div class="absolute -top-5 -right-5 w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full blur-[40px] opacity-10 group-hover:opacity-30 group-hover:scale-150 transition-all duration-700"></div>
+                    
+                    <!-- Background Icon -->
+                    <img src="https://webdevservices.in/qr/upload/icons/WhatsApp.png" class="absolute -bottom-8 -right-8 w-48 h-48 opacity-[0.03] grayscale group-hover:grayscale-0 group-hover:opacity-10 group-hover:rotate-12 transition-all duration-700 pointer-events-none" alt="">
+                    
+                    <div class="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-text-main mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-xl transition-all duration-500 relative z-10">
+                        <i data-feather="message-circle" class="w-8 h-8"></i>
+                    </div>
+                    
+                    <h3 class="text-2xl font-extrabold mb-3 relative z-10">WhatsApp</h3>
+                    <p class="text-text-muted leading-relaxed text-sm mb-8 relative z-10">Start chat with a message</p>
+                    
+                    <div class="flex items-center gap-2 text-primary font-bold group-hover:gap-4 group-hover:text-secondary transition-all relative z-10">
+                        Try Now <i data-feather="arrow-right" class="w-4.5 h-4.5"></i>
+                    </div>
+                </div>
+            </a>
+                        <a href="https://webdevservices.in/qr/tools/vcard" class="group block relative p-2.5 glass-card rounded-[2.5rem] transition-all duration-500 hover:-translate-y-3 hover:bg-white hover:border-white hover:shadow-2xl">
+                <div class="relative bg-white rounded-[2rem] p-8 h-full border border-slate-50 overflow-hidden group-hover:border-transparent transition-all">
+                    <!-- Glow Blob -->
+                    <div class="absolute -top-5 -right-5 w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full blur-[40px] opacity-10 group-hover:opacity-30 group-hover:scale-150 transition-all duration-700"></div>
+                    
+                    <!-- Background Icon -->
+                    <img src="https://webdevservices.in/qr/upload/icons/vCard-Profile.png" class="absolute -bottom-8 -right-8 w-48 h-48 opacity-[0.03] grayscale group-hover:grayscale-0 group-hover:opacity-10 group-hover:rotate-12 transition-all duration-700 pointer-events-none" alt="">
+                    
+                    <div class="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-text-main mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-xl transition-all duration-500 relative z-10">
+                        <i data-feather="user" class="w-8 h-8"></i>
+                    </div>
+                    
+                    <h3 class="text-2xl font-extrabold mb-3 relative z-10">vCard Profile</h3>
+                    <p class="text-text-muted leading-relaxed text-sm mb-8 relative z-10">Digital professional contact</p>
+                    
+                    <div class="flex items-center gap-2 text-primary font-bold group-hover:gap-4 group-hover:text-secondary transition-all relative z-10">
+                        Try Now <i data-feather="arrow-right" class="w-4.5 h-4.5"></i>
+                    </div>
+                </div>
+            </a>
+                        <a href="https://webdevservices.in/qr/tools/wifi" class="group block relative p-2.5 glass-card rounded-[2.5rem] transition-all duration-500 hover:-translate-y-3 hover:bg-white hover:border-white hover:shadow-2xl">
+                <div class="relative bg-white rounded-[2rem] p-8 h-full border border-slate-50 overflow-hidden group-hover:border-transparent transition-all">
+                    <!-- Glow Blob -->
+                    <div class="absolute -top-5 -right-5 w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full blur-[40px] opacity-10 group-hover:opacity-30 group-hover:scale-150 transition-all duration-700"></div>
+                    
+                    <!-- Background Icon -->
+                    <img src="https://webdevservices.in/qr/upload/icons/Secure-Wi-Fi.png" class="absolute -bottom-8 -right-8 w-48 h-48 opacity-[0.03] grayscale group-hover:grayscale-0 group-hover:opacity-10 group-hover:rotate-12 transition-all duration-700 pointer-events-none" alt="">
+                    
+                    <div class="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-text-main mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-xl transition-all duration-500 relative z-10">
+                        <i data-feather="wifi" class="w-8 h-8"></i>
+                    </div>
+                    
+                    <h3 class="text-2xl font-extrabold mb-3 relative z-10">Secure Wi-Fi</h3>
+                    <p class="text-text-muted leading-relaxed text-sm mb-8 relative z-10">Instant network connectivity</p>
+                    
+                    <div class="flex items-center gap-2 text-primary font-bold group-hover:gap-4 group-hover:text-secondary transition-all relative z-10">
+                        Try Now <i data-feather="arrow-right" class="w-4.5 h-4.5"></i>
+                    </div>
+                </div>
+            </a>
+                        <a href="https://webdevservices.in/qr/tools/youtube" class="group block relative p-2.5 glass-card rounded-[2.5rem] transition-all duration-500 hover:-translate-y-3 hover:bg-white hover:border-white hover:shadow-2xl">
+                <div class="relative bg-white rounded-[2rem] p-8 h-full border border-slate-50 overflow-hidden group-hover:border-transparent transition-all">
+                    <!-- Glow Blob -->
+                    <div class="absolute -top-5 -right-5 w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full blur-[40px] opacity-10 group-hover:opacity-30 group-hover:scale-150 transition-all duration-700"></div>
+                    
+                    <!-- Background Icon -->
+                    <img src="https://webdevservices.in/qr/upload/icons/YouTube-Video.png" class="absolute -bottom-8 -right-8 w-48 h-48 opacity-[0.03] grayscale group-hover:grayscale-0 group-hover:opacity-10 group-hover:rotate-12 transition-all duration-700 pointer-events-none" alt="">
+                    
+                    <div class="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-text-main mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-xl transition-all duration-500 relative z-10">
+                        <i data-feather="video" class="w-8 h-8"></i>
+                    </div>
+                    
+                    <h3 class="text-2xl font-extrabold mb-3 relative z-10">YouTube Video</h3>
+                    <p class="text-text-muted leading-relaxed text-sm mb-8 relative z-10">One-scan video playback</p>
+                    
+                    <div class="flex items-center gap-2 text-primary font-bold group-hover:gap-4 group-hover:text-secondary transition-all relative z-10">
+                        Try Now <i data-feather="arrow-right" class="w-4.5 h-4.5"></i>
+                    </div>
+                </div>
+            </a>
+                        <a href="https://webdevservices.in/qr/tools/appstore" class="group block relative p-2.5 glass-card rounded-[2.5rem] transition-all duration-500 hover:-translate-y-3 hover:bg-white hover:border-white hover:shadow-2xl">
+                <div class="relative bg-white rounded-[2rem] p-8 h-full border border-slate-50 overflow-hidden group-hover:border-transparent transition-all">
+                    <!-- Glow Blob -->
+                    <div class="absolute -top-5 -right-5 w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full blur-[40px] opacity-10 group-hover:opacity-30 group-hover:scale-150 transition-all duration-700"></div>
+                    
+                    <!-- Background Icon -->
+                    <img src="https://webdevservices.in/qr/upload/icons/App-Store.png" class="absolute -bottom-8 -right-8 w-48 h-48 opacity-[0.03] grayscale group-hover:grayscale-0 group-hover:opacity-10 group-hover:rotate-12 transition-all duration-700 pointer-events-none" alt="">
+                    
+                    <div class="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-text-main mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-xl transition-all duration-500 relative z-10">
+                        <i data-feather="download" class="w-8 h-8"></i>
+                    </div>
+                    
+                    <h3 class="text-2xl font-extrabold mb-3 relative z-10">App Store</h3>
+                    <p class="text-text-muted leading-relaxed text-sm mb-8 relative z-10">Link to App or Play Store</p>
+                    
+                    <div class="flex items-center gap-2 text-primary font-bold group-hover:gap-4 group-hover:text-secondary transition-all relative z-10">
+                        Try Now <i data-feather="arrow-right" class="w-4.5 h-4.5"></i>
+                    </div>
+                </div>
+            </a>
+                        <a href="https://webdevservices.in/qr/tools/email" class="group block relative p-2.5 glass-card rounded-[2.5rem] transition-all duration-500 hover:-translate-y-3 hover:bg-white hover:border-white hover:shadow-2xl">
+                <div class="relative bg-white rounded-[2rem] p-8 h-full border border-slate-50 overflow-hidden group-hover:border-transparent transition-all">
+                    <!-- Glow Blob -->
+                    <div class="absolute -top-5 -right-5 w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full blur-[40px] opacity-10 group-hover:opacity-30 group-hover:scale-150 transition-all duration-700"></div>
+                    
+                    <!-- Background Icon -->
+                    <img src="https://webdevservices.in/qr/upload/icons/Fast-Email.png" class="absolute -bottom-8 -right-8 w-48 h-48 opacity-[0.03] grayscale group-hover:grayscale-0 group-hover:opacity-10 group-hover:rotate-12 transition-all duration-700 pointer-events-none" alt="">
+                    
+                    <div class="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-text-main mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-xl transition-all duration-500 relative z-10">
+                        <i data-feather="mail" class="w-8 h-8"></i>
+                    </div>
+                    
+                    <h3 class="text-2xl font-extrabold mb-3 relative z-10">Fast Email</h3>
+                    <p class="text-text-muted leading-relaxed text-sm mb-8 relative z-10">Pre-written email drafts</p>
+                    
+                    <div class="flex items-center gap-2 text-primary font-bold group-hover:gap-4 group-hover:text-secondary transition-all relative z-10">
+                        Try Now <i data-feather="arrow-right" class="w-4.5 h-4.5"></i>
+                    </div>
+                </div>
+            </a>
+                        <a href="https://webdevservices.in/qr/tools/maps" class="group block relative p-2.5 glass-card rounded-[2.5rem] transition-all duration-500 hover:-translate-y-3 hover:bg-white hover:border-white hover:shadow-2xl">
+                <div class="relative bg-white rounded-[2rem] p-8 h-full border border-slate-50 overflow-hidden group-hover:border-transparent transition-all">
+                    <!-- Glow Blob -->
+                    <div class="absolute -top-5 -right-5 w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full blur-[40px] opacity-10 group-hover:opacity-30 group-hover:scale-150 transition-all duration-700"></div>
+                    
+                    <!-- Background Icon -->
+                    <img src="https://webdevservices.in/qr/upload/icons/Website-URL.png" class="absolute -bottom-8 -right-8 w-48 h-48 opacity-[0.03] grayscale group-hover:grayscale-0 group-hover:opacity-10 group-hover:rotate-12 transition-all duration-700 pointer-events-none" alt="">
+                    
+                    <div class="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-text-main mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-xl transition-all duration-500 relative z-10">
+                        <i data-feather="map-pin" class="w-8 h-8"></i>
+                    </div>
+                    
+                    <h3 class="text-2xl font-extrabold mb-3 relative z-10">Maps Location</h3>
+                    <p class="text-text-muted leading-relaxed text-sm mb-8 relative z-10">Exact pin or address</p>
+                    
+                    <div class="flex items-center gap-2 text-primary font-bold group-hover:gap-4 group-hover:text-secondary transition-all relative z-10">
+                        Try Now <i data-feather="arrow-right" class="w-4.5 h-4.5"></i>
+                    </div>
+                </div>
+            </a>
+                        <a href="https://webdevservices.in/qr/tools/text" class="group block relative p-2.5 glass-card rounded-[2.5rem] transition-all duration-500 hover:-translate-y-3 hover:bg-white hover:border-white hover:shadow-2xl">
+                <div class="relative bg-white rounded-[2rem] p-8 h-full border border-slate-50 overflow-hidden group-hover:border-transparent transition-all">
+                    <!-- Glow Blob -->
+                    <div class="absolute -top-5 -right-5 w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full blur-[40px] opacity-10 group-hover:opacity-30 group-hover:scale-150 transition-all duration-700"></div>
+                    
+                    <!-- Background Icon -->
+                    <img src="https://webdevservices.in/qr/upload/icons/Plain-Text.png" class="absolute -bottom-8 -right-8 w-48 h-48 opacity-[0.03] grayscale group-hover:grayscale-0 group-hover:opacity-10 group-hover:rotate-12 transition-all duration-700 pointer-events-none" alt="">
+                    
+                    <div class="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-text-main mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-xl transition-all duration-500 relative z-10">
+                        <i data-feather="type" class="w-8 h-8"></i>
+                    </div>
+                    
+                    <h3 class="text-2xl font-extrabold mb-3 relative z-10">Plain Text</h3>
+                    <p class="text-text-muted leading-relaxed text-sm mb-8 relative z-10">Displays any text message</p>
+                    
+                    <div class="flex items-center gap-2 text-primary font-bold group-hover:gap-4 group-hover:text-secondary transition-all relative z-10">
+                        Try Now <i data-feather="arrow-right" class="w-4.5 h-4.5"></i>
+                    </div>
+                </div>
+            </a>
+                    </div>
+    </section>
+
+    <!-- Workflow -->
+    <section class="container mx-auto px-6 py-24">
+        <div class="bg-white/60 backdrop-blur-3xl rounded-[3rem] p-12 lg:p-20 border border-white shadow-xl">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="inline-block text-primary font-black uppercase tracking-[0.2em] text-xs mb-4">Workflow</span>
+                <h2 class="text-4xl lg:text-5xl font-extrabold tracking-tight">Three Steps to Magic</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="text-center space-y-4 group">
+                    <div class="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center text-secondary font-black text-2xl shadow-lg border border-slate-50 group-hover:scale-110 group-hover:shadow-secondary/20 transition-all duration-500">
+                        1
+                    </div>
+                    <h3 class="text-2xl font-bold">Target</h3>
+                    <p class="text-text-muted">Select your destination: Website, WiFi, or App Store.</p>
+                </div>
+                <div class="text-center space-y-4 group">
+                    <div class="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center text-secondary font-black text-2xl shadow-lg border border-slate-50 group-hover:scale-110 group-hover:shadow-secondary/20 transition-all duration-500">
+                        2
+                    </div>
+                    <h3 class="text-2xl font-bold">Design</h3>
+                    <p class="text-text-muted">Customize colors, shapes, and 3D patterns.</p>
+                </div>
+                <div class="text-center space-y-4 group">
+                    <div class="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center text-secondary font-black text-2xl shadow-lg border border-slate-50 group-hover:scale-110 group-hover:shadow-secondary/20 transition-all duration-500">
+                        3
+                    </div>
+                    <h3 class="text-2xl font-bold">Track</h3>
+                    <p class="text-text-muted">Monitor scans, locations, and device data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="container mx-auto px-6 py-24 space-y-32">
+        <div class="flex flex-col lg:flex-row gap-16 items-center">
+            <div class="w-full lg:w-1/2">
+                <img src="https://webdevservices.in/qr/upload/assets/f_analytics_color.png" class="rounded-3xl shadow-2xl -rotate-2 hover:rotate-0 hover:scale-[1.02] transition-all duration-500" alt="Analytics">
+            </div>
+            <div class="w-full lg:w-1/2 space-y-6">
+                <h2 class="text-4xl lg:text-5xl font-extrabold">Data you can touch.</h2>
+                <p class="text-lg text-text-muted leading-relaxed">
+                    Stop guessing. See exactly when and where your codes are scanned. Our dashboard visualizes user behavior in real-time with vibrant heatmaps.
+                </p>
+            </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row-reverse gap-16 items-center">
+            <div class="w-full lg:w-1/2">
+                <img src="https://webdevservices.in/qr/upload/assets/f_design_color.png" class="rounded-3xl shadow-2xl rotate-2 hover:rotate-0 hover:scale-[1.02] transition-all duration-500" alt="Design">
+            </div>
+            <div class="w-full lg:w-1/2 space-y-6 lg:text-right">
+                <h2 class="text-4xl lg:text-5xl font-extrabold">Unleash your brand.</h2>
+                <p class="text-lg text-text-muted leading-relaxed">
+                    Black squares are boring. Use our "Aurora Engine" to inject your brand colors, logos, and soft gradients into every code you generate.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="container mx-auto px-6 py-24 max-w-4xl">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-extrabold">Common Questions</h2>
+        </div>
+        <div class="space-y-4">
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 cursor-pointer group hover:shadow-md transition-all" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center font-bold text-lg">
+                    What is a Dynamic QR Code? 
+                    <i data-feather="chevron-down" class="w-5 h-5 group-[.active]:rotate-180 transition-transform"></i>
+                </div>
+                <div class="max-h-0 overflow-hidden text-text-muted transition-all duration-300 group-[.active]:max-h-40 group-[.active]:mt-4">
+                    A Dynamic QR code allows you to change the destination URL after printing, and provides tracking statistics.
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 cursor-pointer group hover:shadow-md transition-all" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center font-bold text-lg">
+                    Can I customize the colors? 
+                    <i data-feather="chevron-down" class="w-5 h-5 group-[.active]:rotate-180 transition-transform"></i>
+                </div>
+                <div class="max-h-0 overflow-hidden text-text-muted transition-all duration-300 group-[.active]:max-h-40 group-[.active]:mt-4">
+                    Absolutely. You can choose any color gradient, add logos, and change the eye shapes.
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 cursor-pointer group hover:shadow-md transition-all" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center font-bold text-lg">
+                    Is there a free trial? 
+                    <i data-feather="chevron-down" class="w-5 h-5 group-[.active]:rotate-180 transition-transform"></i>
+                </div>
+                <div class="max-h-0 overflow-hidden text-text-muted transition-all duration-300 group-[.active]:max-h-40 group-[.active]:mt-4">
+                    Yes, we offer a 14-day comprehensive free trial for all new users.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="container mx-auto px-6 py-24">
+        <div class="relative bg-gradient-to-tr from-primary to-secondary rounded-[3rem] p-12 lg:p-24 text-center text-white overflow-hidden">
+            <!-- Decorative Blobs -->
+            <div class="absolute -top-24 -left-24 w-64 h-64 bg-white/20 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute -bottom-24 -right-24 w-80 h-80 bg-primary-dark/30 rounded-full blur-3xl animate-pulse delay-700"></div>
+            
+            <div class="relative z-10 space-y-8">
+                <h2 class="text-4xl lg:text-6xl font-black">Ready to color your world?</h2>
+                <p class="text-xl lg:text-2xl opacity-90 font-medium">Join 10,000+ creators building the future.</p>
+                <div class="pt-4">
+                    <a href="https://webdevservices.in/qr/customer/register" class="inline-block px-12 py-4 bg-white text-primary font-black text-lg rounded-2xl hover:scale-105 transition-transform shadow-2xl">
+                        Get Started Free
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-100 mt-20 pt-16 pb-8">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <div class="w-6 h-6 bg-primary rounded shadow-lg shadow-primary/20"></div>
+                        <span class="font-extrabold text-lg text-slate-800">QR-Master</span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed">Bridging the physical and digital worlds with premium QR solutions.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm text-slate-500">
+                        <li><a href="https://webdevservices.in/qr/customer/register" class="hover:text-primary transition-colors">Get Started</a></li>
+                        <li><a href="https://webdevservices.in/qr/customer/login" class="hover:text-primary transition-colors">Login</a></li>
+                        <li><a href="https://webdevservices.in/qr/docs" class="hover:text-primary transition-colors">Documentation</a></li>
+                        <li><a href="https://webdevservices.in/qr/faq" class="hover:text-primary transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm text-slate-500">
+                        <li><a href="https://webdevservices.in/qr/terms" class="hover:text-primary transition-colors">Terms of Service</a></li>
+                        <li><a href="https://webdevservices.in/qr/privacy" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li><a href="https://webdevservices.in/qr/cookies" class="hover:text-primary transition-colors">Cookie Policy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-4">Support</h4>
+                    <ul class="space-y-2 text-sm text-slate-500">
+                        <li><a href="https://webdevservices.in/qr/contact" class="hover:text-primary transition-colors">Contact Us</a></li>
+                        <li><a href="mailto:support@webdevservices.in" class="hover:text-primary transition-colors">Email Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-100 pt-8 text-center text-slate-400 text-sm font-medium">
+                &copy; 2026 QR-Master. A product of WebDevServices.
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-2 group">
+        <!-- Tooltip -->
+        <div class="bg-white px-4 py-2.5 rounded-2xl shadow-xl shadow-slate-200/50 mr-2 mb-2 transform origin-bottom-right scale-0 group-hover:scale-100 transition-all duration-300 items-center gap-2 hidden lg:flex border border-slate-100">
+            <span class="text-sm font-bold text-slate-700">Chat with us!</span>
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+        </div>
+        
+        <!-- Button -->
+        <a href="https://wa.me/918826809995" target="_blank" class="bg-[#25D366] text-white p-4 rounded-full shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] hover:shadow-[0_6px_20px_rgba(37,211,102,0.23)] hover:-translate-y-1 hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+        </a>
+    </div>
+
+    <script>
+        feather.replace();
+        
+        function toggleFaq(el) {
+            el.classList.toggle('active');
+        }
+
+        // Global Alert Example
+        window.addEventListener('load', () => {
+                    });
+    </script>
+</body>
+</html>
+<!-- DEBUG-VIEW ENDED 2 APPPATH/Views/frontend/home.php -->
